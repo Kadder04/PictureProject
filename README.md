@@ -2,15 +2,15 @@
 ##### A Web-Project created by Kadder04 in his leasure time.
 
 #### Current Project: complete refactoring
-#### Progress Bar: complete refactoring [====>..........] 34%
+#### Progress Bar: complete refactoring [====>.................] 34%
 
 #### Known Errors to fix:
     - Registration doesn't work.
     - Errors on upload.
 ### Update Log
-##### 2.1.0 - DATE
+##### 2.1.0 - 13.01.17
 
-    - Fixed Bug: _"bildergalerie" click in navbar doesn't scroll to navbar._
+    - Fixed Bug: "bildergalerie" click in navbar doesn't scroll to navbar.
     - Refactored index.php completely
     - Added head.php in order to import all libraries only once.
     - Added footer.php in order to style and write footer only once.
