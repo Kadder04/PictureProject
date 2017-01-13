@@ -36,7 +36,7 @@
       if(!empty($user) && !empty($note)) {
       $msg = $user . ' : ' . "\n" . $note . "\n\n";
       //öffnet file
-      $fp = fopen("guestbook.txt","a") or die("File kann nicht geöffnet werden!");
+      $fp = fopen("data/guestbook.txt","a") or die("File kann nicht geöffnet werden!");
       //schreibt im file
       fwrite($fp, $msg."\n");
       fclose($fp);
@@ -46,7 +46,7 @@
 
       <h2>Alle Einträge:</h2>
       <?php
-      $file = fopen("guestbook.txt", "r") or exit("File kann nicht geöffnet werden!");
+      $file = fopen("data/guestbook.txt", "r") or exit("File kann nicht geöffnet werden!");
       while(!feof($file))
         {
         echo fgets($file). '<br />';

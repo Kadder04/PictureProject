@@ -1,133 +1,126 @@
 ﻿<html>
-<header>
-<title>PictureProject | Willkommen</title>
-<meta http-equiv="Content-Type" content="text/plain; charset="utf-8"/>
-<link rel="stylesheet" type="text/css" href="style.css">
-</header>
-<body bgcolor="#006699">
-<div class="fixed-header">
-            <nav class="main-menu" style="width:981; margin: auto;">
-                <ul>
-					<li><a><b>PictureProject</b></a></li>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#gb">Gästebuch</a></li>
-                    <li><a href="#login">Einloggen</a></li>
-                    <li><a href="#register">Registrieren</a></li>
-                    <li><a href="#upload">Bildergallerie</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-<div class="table">
-<center>
-<table bgcolor="#ffffff" border="0">
-	<tr>
-		<td id="home" width="570" height="570" ><img src="images/index/street.jpg"/></td>
-		<td width="570" height="570" align="center" valign="top"></br></br></br></br></br></br></br></br></br></br></br>
-		<h2>PictureProject</h2></br></br>
-		<h3>Willkommen zu der nach Bilder verrückten Community!</h3></br></br>
-		</td>
-	</tr>
-	
-	<tr>
-		<td id="gb" width="570" height="570" align="center" valign="top"></br>
-		</br></br></br><h2>Gästebuch</h2></br></br></br>
-		<p>Teilen Sie mit anderen Nutzern Ihre Erfahrungen. Weiterhin können Sie uns Ihre Erfahrungen mitteilen
-             und Vorschläge vermitteln. Wir erfreuen uns auf jeden Beitrag von unserer Community.</p>
+	<header>
+		<title>PictureProject</title>		
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="javascript/javascript.js"></script>
+		<script type="text/javascript" src="javascript/jquery.easing.min.js"></script>
+	</header>
+	<body>
+
+		<!-- navigation bar -->
+		<div class="navbar">
+			<div class="navbar_content"><a href="#home" class="page-scroll">PictureProject</a></div>
+			<div class="navbar_content"><a href="#gb" class="page-scroll">Gästebuch</a></div>
+			<div class="navbar_content"><a href="#login" class="page-scroll">Einloggen</a></div>
+			<div class="navbar_content"><a href="#register" class="page-scroll">Registrieren</a></div>
+			<div class="navbar_content"><a href="#upload" class="page-scroll">Bildergallerie</a></div>
+		</div>
+
+		<!-- Home panel -->
+		<div class="section first_panel_padding">
+			<div id="home" class="section_panel navbar_padding">
+				<img src="images/index/street.jpg"/>
+			</div>
+			<div class="section_panel">
+				<h2>PictureProject</h2>
+				<h3>Willkommen bei der PictureProject-community!</h3>
+			</div>
+		</div>
+
+		<!-- Guestbook panel -->
+		<div class="section">
+			<div id="gb" class="section_panel navbar_padding">
+				<h2>Gästebuch</h2>
+				<p>Teilen Sie uns und andern Benutzern Ihre Erfahrung mit unserer Webseite mit! 
+				   Des weiteren können Sie auch Vorschläge und Verbesserungsmöglichkeiten für die Seite posten! 
+				   Wir freuen und über jeden Beitrag der Community!</p>
+				<a href="guestbook.php"><button type="button">zum Gästebuch</button></a>
+			</div>
+			<div class="section_panel">
+				<img src="images/index/gb.jpg"/>
+			</div>
+		</div>
+
+		<!-- Login panel -->
+		<div class="section">
+			<div id="login" class="section_panel navbar_padding">
+				<img src="images/index/blume.jpg"/>
+			</div>
+			<div class="section_panel">
+				<h2>Willkommen zurück!</h2>
+				<p>Loggen Sie sich hier mit Ihren Anmelde-Daten ein, um danach die Bildergalerie besuchen zu können!</p>
+				<form action="login.php" method="POST">
+					<p>Username:<input type="text" name="username"></p>
+					<p>Passwort:<input type="password" name="password"></p>
+					<p><input type="submit" value="Login">
+					<input type="reset" value="Löschen"></p>
+				</form>
+
+				<!-- PHP that checks if the user is logged in -->
+				<?php
+				if (isset($_COOKIE['login'])){
+				?>
+				<form action="logout.php" method="GET">
+					<input type="hidden" name="logout">
+					<input type="submit" value="Ausloggen">
+				</form>
+				<?php
+					}
+					else{
+				?>
+				<?php	}	
+				?>
+
+			</div>
+		</div>
+
+		<!-- Register panel -->
+		<div class="section">
+			<div id="register" class="section_panel navbar_padding">
+				<h2>Werden Sie heute noch ein Teil unserer Community!</h2>
+				<form action="register.php" method="GET">
+					<p>Username: </br><input type="text" name="username"</p>
+					<p>Passwort: </br><input type="password" name="password"</p>
+					<p><input type="submit" value="Registrieren">
+					<input type="reset" value="Löschen"></p>
+				</form>
+			</div>
+			<div class="section_panel">
+				<img src="images/index/join.jpg"/>
+			</div>
+		</div>
+
+		<!-- Bildergalerie panel -->
+		<div class="section">
+			<div id="upload">
+				<img src="images/index/nootnoot.jpg"/>
+			</div>
+			<div class="section_panel">
+				<h2>Bildergalerie</h2>
+				<p>Greife hier auf deine Fotos zu oder lade Sie von überall auf der Welt herauf!</p>
+				<!-- PHP that checks if the user is logged in -->
+				<?php
+					if (isset($_COOKIE['login'])){
+				?>
+				<a href="gallery.php"><button type="button">Bildergallerie</button></a>
+				<?php
+					}else{
+						
+				?>
+				<p>Sie müssen sich zuerst einloggen bevor Sie die Bildergallerie betreten können.</p>
+				<button type="button" disabled>Bildergallerie</button>
+				<?php
+					}
+				?>
+			</div>
+		</div>
+
 		<div>
-               <a href="guestbook.php"><button type="button" class="btn dark-blue-bordered-btn normal-btn">zum Gästebuch</button></a>
-           </div></td>
-		<td width="570" height="570"><img src="images/index/gb.jpg"/></td>
-	</tr>
-	
-	<tr>
-		<td id="login" width="570" height="570"><img src="images/index/blume.jpg"/></td>
-		<td width="570" height="570" align="center" valign="top"></br>
-		</br></br><h2>Willkommen zurück!</h2></br>
-		<p>Wir haben Sie vermisst.</p></br></br>
-		<div>
-		
-        <form action="login.php" method="POST">
-		
-		<p>
-		Username: </br><input type="text" name="username" class="btn dark-blue-bordered-btn normal-btn">
-		</p>
-		<p>
-		Passwort: </br><input type="password" name="password" class="btn dark-blue-bordered-btn normal-btn">
-		</p>
-		<p>
-		<input type="submit" value="Login" class="btn dark-blue-bordered-btn normal-btn">
-		<input type="reset" value="Löschen" class="btn dark-blue-bordered-btn normal-btn">
-		</p>
-	</form>
-		
-	<?php
-	
-	
-	if (isset($_COOKIE['login'])){
-	?>
-		<form action="logout.php" method="GET">
-			<input type="hidden" name="logout">
-			<input type="submit" value="Ausloggen" class="btn dark-blue-bordered-btn normal-btn">
-		</form>
-	<?php
-		}
-		else{
-	?>
-		
-		<!--<form action="registrate.php" method="GET">
-			<input type="hidden" name="Registrate">
-			<input type="submit" value="Registrate">
-		</form>-->
-	<?php
-		}
-	?>
-           </div>
-		</td>
-	</tr>
-	
-	<tr>
-		<td id="register" width="570" height="570" align="center" valign="top"></br>
-		</br></br></br><h2>Werden Sie heute noch ein Teil unserer Community!</h2></br></br></br>
-		<div>
-        <form action="register.php" method="GET">
-		<p>Username: </br><input type="text" name="username" class="btn dark-blue-bordered-btn normal-btn"> </p>
-		<p>Passwort: </br><input type="password" name="password" class="btn dark-blue-bordered-btn normal-btn"> </p>
-		<p><input type="submit" value="Registrieren" class="btn dark-blue-bordered-btn normal-btn">
-		<input type="reset" value="Löschen" class="btn dark-blue-bordered-btn normal-btn"></p>
-	</form>
-           </div></td>
-		<td width="570" height="570"><img src="images/index/join.jpg"/></td>
-	</tr>
-	
-	<tr>
-		<td id="upload" width="570" height="570"><img src="images/index/nootnoot.jpg"/></td>
-		<td width="570" height="570" align="center" valign="top"></br>
-		</br></br></br><h2>Willkommen zu der nach Bilder verrückten Community!</h2></br></br></br>
-		<p>Lade deine Fotos hoch, greife auf sie zu, sortiere, bearbeite und teile sie über jedes Gerät und von überall auf der Welt aus.</p>
-		<?php
-			if (isset($_COOKIE['login'])){
-		?>
-		
-		<a href="gallery.php"><button type="button" class="btn dark-blue-bordered-btn normal-btn">Bildergallerie</button></a>
-		
-		<?php
-			}else{
-				
-		?>
-		<button type="button" disabled class="btn dark-blue-bordered-btn normal-btn">Bildergallerie(Sie müssen sich zuerst einloggen)</button>
-		<?php
-			}
-		?>
-		</td>
-	</tr>
-</table>
-</center>
-</div>
-<div class="text-center footer">
-    	<center><div class="container">
-    		Copyright @ 2016 PictureProject
-        </div></center>
-    </div>
-</body>
+			<div class="section centerText">
+				Copyright @ 2017 PictureProject
+			</div>
+		</div>
+	</body>
 </html>
