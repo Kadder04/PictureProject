@@ -45,7 +45,10 @@ function print_pagination($numPages,$currentPage) {
 	       } else {
 	           $class = 'paginate';
 	       } 
-		       echo '<a class="'. $class .'" href="'. $_SERVER['PHP_SELF'] .'?p='. $p .'">'. $p .'</a>';  	  
+	       
+
+		       echo '<a class="'. $class .'" href="'. $_SERVER['PHP_SELF'] .'?p='. $p .'">'. $p .'</a>';
+		  	  
 	   }
 	   
 	   if ($currentPage != $numPages) {
