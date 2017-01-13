@@ -5,22 +5,52 @@ body{
     font-family: 'Open Sans', sans-serif; /* For all text in body */
 }
 
-a {
+a{
     /* So links in Navbar don't look like links */
     color: white;
     text-decoration: none;
-    position: relative; /* For animation */
-    top: 0; /* For animation */
-    transition: top ease 0.5s; /* For animation */
 }
 
 a:hover 
 {
     /* So links in Navbar don't look like links */
     color: white;
-    text-decoration:none; 
-    cursor:pointer;
+    text-decoration:none;
+}
+
+.link_animation{
+    position: relative; /* For animation */
+    top: 0; /* For animation */
+    transition: top ease 0.5s; /* For animation */
+}
+.link_animation:hover{
     top: -10px; /* For animation */  
+}
+
+.button_style,
+input[type=submit],
+input[type=reset]{
+    background-color: #ADADAD;
+    border: 2px solid #A4A8AB;
+    padding: 10px 30px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+}
+.button_style:hover{
+    /* Nothing in here to override the a:hover properties */
+}
+
+input[type=password],
+input[type=text]{
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    background-color: white;
+    border: 1px solid #cccccc;
 }
 
 .navbar{
@@ -65,6 +95,10 @@ a:hover
     margin: auto;
 }
 
+.small_text{
+    font-size: 12px;
+}
+
 .first_panel_padding{
     padding-top: 150px;
 }
@@ -81,4 +115,38 @@ a:hover
 
 .page-scroll{
     /* Is used to scroll smoothly */
+}
+
+/* GUESTBOOK.PHP */
+.header{
+    padding-top: 150px;
+    text-align: center;
+}
+
+.content{
+    text-align: center;
+}
+
+textarea{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 580px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    background-color: white;
+    border: none;
+}
+
+.title{
+    margin: auto;
+    text-align: center;
+    width: 580px;
+}
+
+.beitrag{
+    margin: auto;
+    width: 560px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }

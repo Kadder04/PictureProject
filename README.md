@@ -1,6 +1,29 @@
 # PictureProject
 ##### A Web-Project created by Kadder04 in his leasure time.
 
+#### Current Project: complete refactoring
+#### Progress Bar: complete refactoring [====>..........] 34%
+
+#### Known Errors to fix:
+    - Registration doesn't work.
+    - Errors on upload.
+### Update Log
+##### 2.1.0 - DATE
+
+    - Fixed Bug: _"bildergalerie" click in navbar doesn't scroll to navbar._
+    - Refactored index.php completely
+    - Added head.php in order to import all libraries only once.
+    - Added footer.php in order to style and write footer only once.
+    - Completely refactored guestbook.php
+
+##### 2.0.0 - 13.01.17
+
+    - Updated README.md
+    - Refactored stylesheet and called it stylesheet.css
+    - Exchanged style.css for stylesheet.css in index.html
+    - Implemented jquery.easing.min.js for smooth scrolling
+    - Refactored index.php (ToDo: css for forms)
+
 ### Directory Info
 ##### - gallery.php
     Takes you to the actial gallery.php.
@@ -22,25 +45,10 @@
     Unfinished navigation bar. Not currently used.
 ##### - register.php
     Provides Registration functionality.
-    Cannot Register
-    ###### ToDo
+    Cannot Register!
 ##### - upload.php
     Provides upload functionality.
-    Generates Errors on upload.
-    ###### ToDo
-
-### Update Log
-
-#### Progress Bar: complete refactoring [==>.........] 21%
-
-##### 2.0.0
-
-    - Updated README.md
-    - Refactored stylesheet and called it stylesheet.css
-    - Exchanged style.css for stylesheet.css in index.html
-    - Implemented jquery.easing.min.js for smooth scrolling
-    - Refactored index.php (ToDo: css for forms)
-
+    Generates Errors on upload!
 ###### Good to know
     Scrolling to a div only works if the target is a div that contains a picture or text e.g: "section_panel" and doesn't work with "section".
 

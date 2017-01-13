@@ -1,12 +1,8 @@
-Alex : 
-Super Seite! :D
+Benutzer: Alex
+Kommentar: Super Seite! :D
 
+Benutzer: Rana
+Kommentar: Sehr schön :)
 
-Rana : 
-Sehr schön :)
-
-
-Rudolf : 
-Nice ;)
-
-
+Benutzer: Rudolf
+Kommentar: Nice ;)
