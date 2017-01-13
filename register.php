@@ -3,7 +3,7 @@
 	if (isset ($_GET['checkadmin'])){
 		$temp = "Admin";
 	}
-	$pfad = "E:/xampp/htdocs/PictureProject/data/" . $temp . "Users.txt";
+	$pfad = "./data/" . $temp . "UserUsers.txt";
 	$username = $_GET['username'];
 	$password = $_GET['password'];
 	
@@ -12,7 +12,7 @@
 		fwrite ($myfile, "\r\n" . $username);
 		fclose($myfile);
 		
-		$pfad = "E:/xampp/htdocs/PictureProject/data/" . $temp . "Pw.txt";
+		$pfad = "./data/" . $temp . "UserPw.txt";
 		
 		$myfile = fopen($pfad, "a") or die("Unable to open file!");
 		fwrite ($myfile, "\r\n" . $password);
