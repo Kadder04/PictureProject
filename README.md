@@ -2,19 +2,26 @@
 ##### A Web-Project created by Kadder04 in his leasure time.
 
 #### Current Project: complete refactoring
-#### Progress Bar: complete refactoring [====>.................] 34%
+#### Progress Bar: complete refactoring [============>......] 74%
 
 #### Known Errors to fix:
     - Registration doesn't work.
     - Errors on upload.
 ### Update Log
+
+##### 2.2.0 - 16.01.17
+
+    - Refactored gallery.php completely
+    - Suppressed warnings on gallery.php, take the suppression away asap after fix.(!)
+    - Refactored upload.php more or less
+
 ##### 2.1.0 - 13.01.17
 
     - Fixed Bug: "bildergalerie" click in navbar doesn't scroll to navbar.
     - Refactored index.php completely
     - Added head.php in order to import all libraries only once.
     - Added footer.php in order to style and write footer only once.
-    - Completely refactored guestbook.php
+    - Refactored guestbook.php completely
 
 ##### 2.0.0 - 13.01.17
 
