@@ -87,6 +87,11 @@ input[type=text]{
     margin: auto;
 }
 
+.thumbnails{
+    margin: auto;
+    width: 470px;
+}
+
 .centerText{
     text-align: center;
 }
@@ -109,8 +114,25 @@ input[type=text]{
     margin-top: -141px;
 }
 
+.upload{
+    margin: auto;
+    width: 500px;
+}
+
 .none{
     display: none;
+}
+
+.autoPadding{
+    padding: auto;
+}
+
+.title{
+    font-size: 50px;
+}
+
+.subtitle{
+    font-size: 30px;
 }
 
 .page-scroll{

@@ -1,5 +1,5 @@
 <div>
-	<div class="section centerText">
+	<div class="centerText">
 		Copyright @ 2017 PictureProject
 	</div>
 </div>

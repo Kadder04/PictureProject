@@ -6,7 +6,9 @@ $thumb_width  = '89';
 $thumb_height = '50';        
 $src_folder   = './images/gallery';           
 $src_files    = scandir($src_folder);
-$extensions   = array(".jpg",".png",".gif",".JPG",".PNG",".GIF");
+$extensions   = array(".jpg", ".jpeg", ".png",".gif",".JPG", ".JPEG", ".PNG",".GIF");
+
+error_reporting(0); //Delete asap when fixed
 
 function make_thumb($folder,$src,$dest,$thumb_width) {
 
@@ -58,118 +60,99 @@ function print_pagination($numPages,$currentPage) {
 }
 ?>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Photo Gallerie</title>
-<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-<?php include('navigation.php'); ?>
-<div align="center" style="font-size:13px;font-weight:bold;">
-</div>
+	<head>
+		<?php include('head.php'); ?>
+	</head>
+	<body>
+		<?php include('navigation.php'); ?>
 
-<div class="gallery"> 
- <div class="container guestbook background">
-<?php 
-$files = array();
-foreach($src_files as $file) {
-        
+	<div class="gallery"> 
+	<div class="container guestbook background">
+	<?php 
+	$files = array();
+	foreach($src_files as $file) {
+		
 	$ext = strrchr($file, '.');
-    if(in_array($ext, $extensions)) {
-          
-       array_push( $files, $file );
-		  
-		   
-       if (!is_dir($src_folder.'/thumbnails')) {
-          mkdir($src_folder.'/thumbnails');
-          chmod($src_folder.'/thumbnails', 0777);
-          //chown($src_folder.'/thumbnails', 'apache'); 
-       }
-		   
-	   $thumb = $src_folder.'/thumbnails/'.$file;
-       if (!file_exists($thumb)) {
-          make_thumb($src_folder,$file,$thumb,$thumb_width); 
-          
-	   }
-        
-	}
-      
-}
- 
-
-if ( count($files) == 0 ) {
-
-    echo 'In diesem Album sind keine Bilder vorhanden';
-   
-} else {
-	echo 'Willkommen, '. $_SESSION['username']; 
-    $numPages = ceil( count($files) / $itemsPerPage );
-
-    if(isset($_GET['p'])) {
-      
-       $currentPage = $_GET['p'];
-       if($currentPage > $numPages) {
-           $currentPage = $numPages;
-       }
-
-    } else {
-       $currentPage=1;
-    } 
-
-    $start = ( $currentPage * $itemsPerPage ) - $itemsPerPage;
-
-    for( $i=$start; $i<$start + $itemsPerPage; $i++ ) {
-		  
-	   if( isset($files[$i]) && is_file( $src_folder .'/'. $files[$i] ) ) { 
-	   
-	      echo '<div class="thumb">
-	            <a href="'. $src_folder .'/'. $files[$i] .'" class="albumpix" rel="albumpix">
-			       <img src="'. $src_folder .'/thumbnails/'. $files[$i] .'" width="'.$thumb_width.'" height="'.$thumb_height.'" alt="" />
-				</a>  
-			    </div>'; 
-      
-	    } else {
-		  
-		  if( isset($files[$i]) ) {
-		    echo $files[$i];
-		  }
-		  
+	if(in_array($ext, $extensions)) {
+			
+		array_push( $files, $file );
+			
+			
+		if (!is_dir($src_folder.'/thumbnails')) {
+			mkdir($src_folder.'/thumbnails');
+			chmod($src_folder.'/thumbnails', 0777);
+			//chown($src_folder.'/thumbnails', 'apache'); 
 		}
-     
-    }
-	   
+			
+		$thumb = $src_folder.'/thumbnails/'.$file;
+		if (!file_exists($thumb)) {
+			make_thumb($src_folder,$file,$thumb,$thumb_width); 
+			
+		}
+		
+	}
+		
+	}
 
-     echo '<div class="clear"></div>';
-  
-     echo '<div class="p5-sides">
-	         <div class="float-left" >'.count($files).' Bilder</div>
-	 
-	         <div class="float-right" class="paginate-wrapper">';
-        	 
-              print_pagination($numPages,$currentPage);
-  
-       echo '</div>
-	 
-	         <div class="clearb10">
-		   </div>';
 
-}
-?>
-  
-</div>   
-<div>
-	</br><a href="upload.php" class="btn dark-blue-bordered-btn normal-btn">Hochladen</a>
-</div>
-<div class="text-center footer">
-    	<center><div class="container">
-    		<font color="#006699">Copyright @ 2016 PictureProject</font>
-        </div></center>
-    </div>
-<?php }else{ ?>
-<link rel="stylesheet" type="text/css" href="style.css">
-<?php include('navigation.php'); ?>
-<center><h1>Sie sind zurzeit nicht Eingelogt.</h1></center>
+	if ( count($files) == 0 ) {
 
-<?php } ?>
-</body>
+	echo 'In dieser Galerie sind keine Bilder vorhanden';
+
+	} else {
+	echo '<p class="centerText subtitle first_panel_padding">Willkommen, '. $_SESSION['username'] .'!</p>'; 
+	$numPages = ceil( count($files) / $itemsPerPage );
+
+	if(isset($_GET['p'])) {
+		
+		$currentPage = $_GET['p'];
+		if($currentPage > $numPages) {
+			$currentPage = $numPages;
+		}
+
+	} else {
+		$currentPage=1;
+	} 
+
+	$start = ( $currentPage * $itemsPerPage ) - $itemsPerPage;
+
+	echo '<div class="thumbnails">';
+	
+	for( $i=$start; $i<$start + $itemsPerPage; $i++ ) {
+			
+		if( isset($files[$i]) && is_file( $src_folder .'/'. $files[$i] ) ) { 
+		
+			echo '<a href="'. $src_folder .'/'. $files[$i] .'">
+					<img src="'. $src_folder .'/thumbnails/'. $files[$i] .'" width="'.$thumb_width.'" height="'.$thumb_height.'"/>
+				</a>'; 
+		
+		} else {
+			
+			if( isset($files[$i]) ) {
+			echo $files[$i];
+			}
+			
+		}
+		
+	}
+
+	echo '</div>'; //Closes div thumbnails
+	echo '<div class="centerText">
+			<div><br><br><br>Total ' .count($files).' Bilder</div>';			
+		print_pagination($numPages,$currentPage);
+	}
+	?>
+
+	</div>   
+	<div class="centerText">
+	</br><a href="upload.php" class="button_style">Hochladen</a><br><br><br>
+	</div>
+	<?php include('footer.php'); ?>
+	<?php }else{ ?>
+	<?php include('head.php'); ?>
+	<?php include('navigation.php'); ?>
+	<p class="title centerText navbar_padding">Sie sind zurzeit nicht Eingelogt.<br><br><br></p>
+	<?php include('footer.php'); ?>
+	<?php } ?>
+	</body>
 </html>
