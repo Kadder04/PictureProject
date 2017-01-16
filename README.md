@@ -2,7 +2,7 @@
 ##### A Web-Project created by Kadder04 in his leasure time.
 
 #### Current Project: complete refactoring
-#### Progress Bar: complete refactoring [====>.................] 34%
+#### Progress Bar: complete refactoring [============>......] 74%
 
 #### Known Errors to fix:
     - Registration doesn't work.
